@@ -2,10 +2,6 @@
 
 import matplotlib.pyplot as plt
 from matplotlib import animation
-import matplotlib
-matplotlib.rcParams['animation.embed_limit'] = 2**128
-#matplotlib.use("TkAgg") # for mac M1
-from IPython.display import HTML
 
 # Variable definitions ------------------------------------------------------------------------------------------------
 G               = 6.6743e-11                        # Gravitational constant [m^3*kg^(-1)*s^(-2)]
@@ -47,7 +43,7 @@ xSunHist, ySunHist, zSunHist       = [],[],[]
 xMarsHist, yMarsHist, zMarsHist    = [],[],[]
 # ---------------------------------------------------------------------------------------------------------------------
 
-# Simulation ----------------------------------------------------------------------------------------------------------
+# Simulation Data -----------------------------------------------------------------------------------------------------
 while t<5*365.2422*secondsPerDay: #Simulating 5 years
     modulusEarth, modulusMars = 0, 0
     # Forces on Earth - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -103,7 +99,9 @@ while t<5*365.2422*secondsPerDay: #Simulating 5 years
 
     # Update time
     t += dt
+# ---------------------------------------------------------------------------------------------------------------------
 
+# Simulation Plotting -------------------------------------------------------------------------------------------------
 fig, ax = plt.subplots(figsize=(10,10))
 ax.set_aspect('equal')
 ax.grid()
@@ -154,3 +152,4 @@ def update(i):
 
 anim = animation.FuncAnimation(fig,func=update,frames=len(xEarthHist),interval=1,blit=True)
 plt.show()
+# ---------------------------------------------------------------------------------------------------------------------

@@ -1,3 +1,5 @@
+# Source for data: https://nssdc.gsfc.nasa.gov/planetary/factsheet/index.html
+
 import matplotlib.pyplot as plt
 from matplotlib import animation
 
